@@ -1,0 +1,61 @@
+<header>
+    <nav class="navbar  navbar-expand-lg navbar-dark  p-md-3 ">
+        <div class="container-fluid">
+            <i class="fa fa-plus-square"><a class="navbar-brand" style="color: rgb(4, 4, 16);" href="#" *ngIf="loginService.isUserLoggedIn()"> 
+                 City Hosiptal</a></i>
+            <div class="form-inline my-2 my-lg-0" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="modal-header">
+                    <li class="modal-header">
+                        <b> <a *ngIf="loginService.isUserLoggedIn()" routerLink="homepage" routerLinkActive="active"
+                                class="nav-link" style="color: rgb(0, 6, 6);">
+                                <span class="fa fa-home mr-3"></span> Home</a> </b>
+                    </li>
+                    <li class="modal-header">
+
+                        <b> <a *ngIf="loginService.isUserLoggedIn()" routerLink="patients" routerLinkActive="active"
+                                class="nav-link" style="color: rgb(0, 6, 6);">
+                                <span class="fa fa-user mr-3"></span>Patient's Details</a></b>
+
+                    </li>
+                    
+                    <li class="modal-header">
+
+                    <b> <a *ngIf="loginService.isUserLoggedIn()" routerLink="contact" routerLinkActive="active"
+                            class="nav-link" style="color: rgb(2, 14, 14);">
+                            <span class="fa fa-paper-plane mr-3"></span>Contact Us</a></b>
+        
+
+                    </li>
+
+                    <li class="modal-header">
+
+                        <b> <a *ngIf="loginService.isUserLoggedIn()" class="nav-link" style="color: rgb(2, 9, 9);"
+                                routerLink="service">
+                                <span class="fa fa-cogs mr-3"></span>Services</a></b>
+
+                    </li>
+                    <li class="modal-header">
+
+                        <b> <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link"
+                                style="color: rgb(3, 6, 6);"><u>LogOut</u></a></b>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    
+     <button *ngIf="!loginService.isUserLoggedIn()" type="button" class="btn btn-outline-success btn-sm  float-right">
+        <b> <a  routerLink="/login" class="nav-link float-right"
+        style="color: rgb(1, 5, 5);"><u>Login</u></a></b></button>
+
+    <button *ngIf="loginService.isUserLoggedIn()" type="button" class="btn btn-outline-warning btn-lg  float-right"> <b>
+        <a  routerLink="create-patient" routerLinkActive="active"  style="color: rgb(0, 6, 6);">
+        <i class="icon-image"></i>Book an Appointment</a></b></button>
+</header>
+
+<div class="container" id="main-container">
+    <router-outlet></router-outlet>
+</div>

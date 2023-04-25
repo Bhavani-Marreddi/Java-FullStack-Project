@@ -1,0 +1,110 @@
+<head>
+</head>
+<script>
+    function deletePatient() {
+        var status = confirm("You want to delete this record?");
+        if (status == true) {
+            return true;
+        }
+        else {
+            event.preventDefault();
+            return false;
+        }
+
+    }
+</script>
+
+<u>
+    <h2 style="text-align: center;"> Patient's List</h2>
+</u><br>
+<hr>
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by patient" [(ngModel)]="firstName" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" (click)="searchByName()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary  btn-sm">Blood Group</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup1()">
+                A+
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup2()">
+                A-
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup3()">
+                B+
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup4()">
+                B-
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup5()">
+                O+
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup6()">
+                O-
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup7()">
+                AB+
+            </a>
+            <a class="dropdown-item" type="button" (click)="fetchTechbloodGroup8()">
+                AB-
+            </a>
+        </div>
+      </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name </th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Email ID</th>
+                <th>Mobile No</th>
+                <th>Aadhar No</th>
+                <th>Blood Group</th>
+                <th>Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patient">
+                <td> {{ patient.firstName }} </td>
+                <td> {{ patient.lastName }} </td>
+                <td> {{ patient.birthdate }} </td>
+                <td> {{ patient.gender }} </td>
+                <td> {{ patient.emailID }} </td>
+                <td> {{ patient.mobileNo }} </td>
+                <td> {{ patient.adharNo }} </td>
+                <td> {{ patient.bloodGroup }} </td>
+                <td>
+                    <button (click)="updatePatient(patient.id)" class=" btn btn-outline-success btn-sm"
+                        style="margin-left: 10px">
+                        <i class="fa fa-pencil"></i></button>
+                    <button (click)="confirmDelete(patient)" onclick=" deletePatient()"
+                        class=" btn  btn-outline-danger btn-sm " style="margin-left: 10px">
+                        <i class="fa fa-trash"></i></button>
+                    <button (click)="patientDetails(patient.id)" class=" btn btn-outline-info btn-sm"
+                        style="margin-left: 10px">
+                        <i class="fa fa-eye"></i> </button>
+                </td>
+            </tr>
+
+            <br>
+                <button *ngIf="patient.length !==0" (click)="confirmDeleteAll()" onclick="removeAllPatients()" class=" btn btn-danger btn-sm" style="margin-left: 10px">
+                    Remove All</button>
+            <tr scope="row" *ngIf="patient.length==0">
+                <td colspan="4" class="text-center">No record found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

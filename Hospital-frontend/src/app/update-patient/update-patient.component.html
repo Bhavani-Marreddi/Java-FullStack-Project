@@ -1,0 +1,99 @@
+<u>
+    <h2 style="text-align: center;"><u> Modify Patient's Details : </u></h2><br>
+</u>
+<body style="background-image: linear-gradient(rgb(122, 247, 210),rgb(239, 243, 244));">
+<div class="col-md-6 offset-md-3">
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group ">
+            <div class="col-25">
+               <b><label for="firstName"> First Name</label></b>
+            </div>
+            <div class="col-75">
+                <input type="text" class="form-control" id="firstName" [(ngModel)]="patient.firstName" name="firstName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-25">
+               <b><label> Last Name</label></b>
+            </div>
+            <div class="col-75">
+                <input type="text" class="form-control" id="lastName" [(ngModel)]="patient.lastName" name="lastName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-25">
+               <b><label> Date Of Birth</label></b>
+            </div>
+            <div class="col-75">
+                <input type="date" class="form-control" id="birthdate" [(ngModel)]="patient.birthdate" name="birthdate">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-25">
+                <h6 class="mb-0 me-4"><b>Gender:</b> </h6>
+            </div>
+            <div class="col-75">
+                <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                        value="Female" [(ngModel)]="patient.gender" />
+                   <b><label class="form-check-label" for="femaleGender">Female</label></b>
+                </div>
+
+                <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="Male"
+                        [(ngModel)]="patient.gender" />
+                  <b><label class="form-check-label" for="maleGender">Male</label></b>
+                </div>
+
+                <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                        value="Other" [(ngModel)]="patient.gender" />
+                  <b><label class="form-check-label" for="otherGender">Other</label></b>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-25">
+                <b><label> Email ID</label></b>
+            </div>
+            <div class="col-75">
+                <input type="text" class="form-control" id=" emailID" [(ngModel)]="patient. emailID" name=" emailID">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-25">
+                <b><label> Phone Number</label></b>
+            </div>
+            <div class="col-75">
+                <input type="tel" class="form-control" id="mobileNo" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                    [(ngModel)]="patient.mobileNo" name="mobileNo" placeholder="Mobile Number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-25">
+                <b><label>Aadhar No</label></b>
+            </div>
+            <div class="col-75">
+                <input type="text" class="form-control" id="adharNo" [(ngModel)]="patient.adharNo" name="adharNo"
+                    placeholder="Aadhar No" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-25">
+                <b><label>Blood Group</label></b>
+            </div>
+            <div class="col-75">
+                <input type="text" class="form-control" id="bloodGroup" [(ngModel)]="patient.bloodGroup" name="bloodGroup"
+                    placeholder="A+,A-,B+,B-,O+,O-,AB+,AB-" required>
+            </div>
+        </div>
+
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>
